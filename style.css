@@ -1,0 +1,196 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #FFDAB9;
+
+    overflow: hidden;
+}
+
+.envelope{
+    position: relative;
+    cursor: pointer;
+}
+
+.back{
+    position: relative;
+    width: 250px;
+    height: 200px;
+    background-color: #fdb8b8;
+}
+
+.front{
+    position: absolute;
+    border-right: 130px solid #F4C2C2;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    height: 0;
+    width: 0;
+    top:0;
+    left: 120px;
+    z-index: 3;
+}
+
+.front::before{
+    content: "";
+    position: absolute;
+    border-left: 130px solid #F4C2C2;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid transparent;
+    height: 0;
+    width: 0;
+    top: -100px;
+    left: -120px;
+}
+
+.front::after{
+    content: "";
+    position: absolute;
+    border-bottom: 105px solid #f8c0c0;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    height: 0;
+    width: 0;
+    top: -5px;
+    left: -120px;
+}
+
+.top{
+    position: absolute;
+    border-top: 105px solid #ffcbcb;
+    border-left: 125px solid transparent;
+    border-right: 125px solid transparent;
+    height: 0;
+    width: 0;
+    top:0;
+    transform-origin: top;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)2.5s;
+
+}
+
+.envelope:hover .top{
+    transform: rotateX(180deg);
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)1.5s;
+}
+
+.letter{
+    position: absolute;
+    background-color: #FFFDD0;
+    width: 230px;
+    height: 240px;
+    top:10px;
+    left: 10px;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1);
+    border-radius: 15px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    visibility: hidden;
+}
+
+.envelope:hover .letter{
+    transform: translateY(-165px);
+    z-index: 2;
+    visibility: inherit;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1)1s;
+}
+
+
+.text1{
+    font-family: cursive;
+    position: absolute;
+    /* top: -70%; */
+    text-align: center;
+    font-size: 17px;
+}
+
+
+.text{
+    text-align: center;
+    font-size: 12px;
+    font-family: cursive;
+    position: relative;
+    margin-top: 20px;
+    width: 80%;
+    top: -15px;
+    left: 40px;
+}
+a:nth-child(1){
+    text-decoration: none;
+    color: black;
+}
+
+a:nth-child(2){
+    display: inline-block;
+    position: absolute;
+    left: 22px;
+    font-family: cursive;
+    background-color: #ffd3d3; /* Envelope color */
+    color: #6A4C93; /* Text color for a nice contrast */
+    padding: 5px 8px;
+    text-decoration: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Cursive', sans-serif; /* Use a cursive font for a romantic feel */
+    font-size: 14px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+a:nth-child(2){
+    background-color: #EFA2A2; /* Slightly darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* a:nth-child(2){
+transform: translateY(0); 
+} */
+
+
+/*--------Heart---------*/
+.heart{
+    margin-top: 2px;
+    background-color: red;
+    height: 30px;
+    width: 30px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    transform: rotate(-45deg);
+    box-shadow: -5px 6px 15px red;
+    animation: heartbeetAnim 0.7s linear infinite;
+}
+
+@keyframes heartbeetAnim {
+    0%{
+        transform: rotate(-45deg) scale(1.03);
+    }
+    70%{
+        transform: rotate(-45deg) scale(1);
+    }
+    100%{
+        transform: rotate(-45deg) scale(0.8);
+    }
+}
+
+.heart::before{
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    top: 0px;
+    border-radius: 50px;
+}
+
+.heart::after{
+    content: "";
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-color: red;
+    top: -14px;
+    right: 0px;
+    border-radius: 50px;
+}
